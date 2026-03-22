@@ -143,7 +143,7 @@ Returns all supported cities with coordinates and zoom levels.
 ### `GET /api/v1/health`
 
 ```
-200 OK — DemandGrid is running
+200 OK — Plotrix is running
 ```
 
 ---
@@ -197,7 +197,7 @@ cd Plotrix-Backend
 docker-compose up -d
 
 # set environment variable
-export DATABASE_URL=jdbc:postgresql://localhost:5432/demandgrid?user=admin&password=password
+export DATABASE_URL=jdbc:postgresql://localhost:5432/plotrix?user=admin&password=password
 
 # run the application
 ./mvnw spring-boot:run
@@ -210,8 +210,8 @@ API available at `http://localhost:8080`
 ## Project structure
 
 ```
-src/main/java/com/demandgrid/
-├── DemandGridApplication.java     # entry point, enables scheduling
+src/main/java/com/Plotrix/
+├── PlotrixApplication.java     # entry point, enables scheduling
 ├── config/
 │   └── CorsConfig.java            # CORS configuration
 ├── controller/
