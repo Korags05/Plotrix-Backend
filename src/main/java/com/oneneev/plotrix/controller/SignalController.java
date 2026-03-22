@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/signals")
+@RequestMapping("/api/v1/signals")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class SignalController {

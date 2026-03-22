@@ -13,6 +13,6 @@ public class SignalService {
 
     public void process(SignalRequest request) {
         String cellId = h3MapperService.getCellId(request.getLatitude(), request.getLongitude());
-        gridCellRepository.upsertSignal(cellId); // atomic — safe under concurrent load
+        gridCellRepository.upsertSignal(cellId, request.getCity());
     }
 }

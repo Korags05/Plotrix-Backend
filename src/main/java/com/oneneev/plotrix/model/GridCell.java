@@ -24,6 +24,9 @@ public class GridCell {
     private String cellId;
 
     @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
     private Double score = 0.0;
 
     @Column(name = "signal_count", nullable = false)

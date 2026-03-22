@@ -12,18 +12,18 @@ import java.util.List;
 
 @Repository
 public interface GridCellRepository extends JpaRepository<GridCell, Integer> {
-    List<GridCell> findByScoreGreaterThan(Double threshold);
+    List<GridCell> findByCityAndScoreGreaterThan(String city, Double threshold);
 
     @Modifying
     @Transactional
     @Query(value = """
-        INSERT INTO grid_cells (cell_id, score, signal_count, last_signal_at, last_decayed_at)
-        VALUES (:cellId, 1.0, 1, NOW(), NOW())
+        INSERT INTO grid_cells (cell_id, city, score, signal_count, last_signal_at, last_decayed_at)
+        VALUES (:cellId, :city, 1.0, 1, NOW(), NOW())
         ON CONFLICT (cell_id)
         DO UPDATE SET
             score = grid_cells.score + 1.0,
             signal_count = grid_cells.signal_count + 1,
             last_signal_at = NOW()
         """, nativeQuery = true)
-    void upsertSignal(@Param("cellId") String cellId);
+    void upsertSignal(@Param("cellId") String cellId, @Param("city") String city);
 }
